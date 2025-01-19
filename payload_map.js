@@ -2,7 +2,7 @@ const payload_map =
     [
         {
             displayTitle: 'etaHEN',
-            description: 'FPKG enabler ',
+             description: '', // Dejar "description" vacío
             fileName: 'etaHEN-20B.bin.gz',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
