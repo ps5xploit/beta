@@ -29,7 +29,7 @@ rop_slave.js
 rw.js 
 utils.js 
 webkit.js 
-payloads\etaHEN-20B.bin.gz 
+payloads/etaHEN-20B.bin.gz 
 payloads/Backup-db-PS5.bin
 payloads/Browser_appCache_remove.elf
 payloads/fan_threshold.elf
