@@ -74,18 +74,3 @@ const payload_map =
 
 ];
 
-// JavaScript para mostrar info en lugar de description
-const btns = document.querySelectorAll('.btn');
-const infoElement = document.getElementById('info'); // Obtén el elemento de info por su ID
-
-btns.forEach(btn => {
-  btn.addEventListener('mouseover', () => {
-    const info = btn.getAttribute('data-info');
-    infoElement.textContent = info; // Actualiza el contenido del elemento de info
-  });
-
-  btn.addEventListener('mouseout', () => {
-    infoElement.textContent = ''; // Limpia el contenido cuando el ratón sale del elemento
-  });
-});
-
