@@ -30,6 +30,6 @@ rw.js
 utils.js 
 webkit.js 
 payloads\etaHEN-20B.bin.gz 
- 
+payloads\fan_threshold.elf
 NETWORK: 
 * 
