@@ -71,14 +71,6 @@ const payload_map =
             source: 'ELF Loader',
             version: '1.1'
         },
-{
-            displayTitle: 'ps5-welcom',
-            description: '', // Dejar "description" vacío
-            fileName: 'ps5-welcome.elf',
-            info: 'ps5-welcom', // Mantener "info"
-            author: 'ps5-welcom',
-            source: 'ps5-welcom',
-            version: '1.1'
-        },
+
 ];
 
