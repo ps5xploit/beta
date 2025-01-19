@@ -30,6 +30,13 @@ rw.js
 utils.js 
 webkit.js 
 payloads\etaHEN-20B.bin.gz 
-payloads\fan_threshold.elf
+payloads/Backup-db-PS5.bin
+payloads/Browser_appCache_remove.elf
+payloads/fan_threshold.elf
+payloads/hwinfo-tornblom.elf
+payloads/libhijacker-daemon-1.124.elf
+payloads/libhijacker-spawner-1.124.elf
+payloads/versions.elf
+payloads/elfldr.elf
 NETWORK: 
 * 
