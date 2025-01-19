@@ -38,5 +38,6 @@ payloads/libhijacker-daemon-1.124.elf
 payloads/libhijacker-spawner-1.124.elf
 payloads/versions.elf
 payloads/elfldr.elf
+payloads/ps5-welcome.elf
 NETWORK: 
 * 
