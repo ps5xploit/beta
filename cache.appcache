@@ -1,0 +1,35 @@
+CACHE MANIFEST 
+# Generated on 18/01/2025 at 22:13:07,54 
+3.00.js 
+3.10.js 
+3.20.js 
+3.21.js 
+4.00.js 
+4.02.js 
+4.03.js 
+4.50.js 
+4.51.js 
+appcache_handler.js 
+cache.appcache 
+constants.js 
+custom_host_stuff.js 
+exploit.js 
+index.html 
+int64.js 
+int64x.js 
+L2.js 
+main.css 
+mem.js 
+memtools.js 
+pako.min.js 
+payload_map.js 
+README.md 
+rop.js 
+rop_slave.js 
+rw.js 
+utils.js 
+webkit.js 
+payloads\etaHEN-20B.bin.gz 
+ 
+NETWORK: 
+* 
