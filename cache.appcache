@@ -39,5 +39,6 @@ payloads/libhijacker-daemon-1.124.elf
 payloads/libhijacker-spawner-1.124.elf
 payloads/versions.elf
 payloads/elfldr.elf
+payloads/etaHEN-20B.elf
 NETWORK: 
 * 

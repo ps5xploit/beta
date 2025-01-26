@@ -3,7 +3,7 @@ const payload_map =
         {
             displayTitle: 'etaHEN',
              description: '', // Dejar "description" vacío
-            fileName: 'etaHEN-20B.bin.gz',
+            fileName: 'etaHEN-20B.elf',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
             version: '1.8 beta'
