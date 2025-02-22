@@ -31,10 +31,16 @@
         }
     }
 
-    // Registra un escuchador de eventos para keydown
-    document.addEventListener("keydown", manejarKeyPress);
+   
 </script>
 <script>
+    // Función para manejar el evento keydown (tecla presionada)
+    function manejarKeyDown(event) {
+        if (event.keyCode === 119) {
+            // Acción cuando la tecla se presiona
+            window.location.href = "https://www.youtube.com";
+        }
+    }
 
     // Función para manejar el evento keyup (tecla liberada)
     function manejarKeyUp(event) {
@@ -45,7 +51,7 @@
     }
 
     // Registrar los escuchadores de eventos
-   
+    document.addEventListener("keydown", manejarKeyDown);
     document.addEventListener("keyup", manejarKeyUp);
 </script>
 
