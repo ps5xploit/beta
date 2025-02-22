@@ -21,36 +21,27 @@
 </head>
 
 <body>
-<!-- L2 button to google-->
+<!-- L2, R1 button to google, youtube-->
 
-    <script>
-        // Función para manejar el evento de pulsación de tecla
-        function manejarKeyPress(event) {
-            // Verifica si la tecla presionada es la tecla "v" (código 118)
-            if (event.keyCode === 118) {
-                // Redirige directamente a google.com
-                window.location.href = "https://www.google.com";
-            }
+   <script>
+    // Función para manejar el evento de pulsación de tecla
+    function manejarKeyPress(event) {
+        // Verifica si la tecla presionada es la tecla "v" (código 118)
+        if (event.keyCode === 118) {
+            // Redirige a google.com cuando se presiona "v"
+            window.location.href = "https://www.google.com";
         }
 
-        // Registra un escuchador de eventos para keydown
-        document.addEventListener("keydown", manejarKeyPress);
-    </script>
-<!-- R1 button to youtube-->
- <script>
-        // Función para manejar el evento de pulsación de tecla
-        function manejarKeyPress(event) {
-            // Verifica si la tecla presionada es la tecla Shift (código 16)
-            if (event.keyCode === 16) {
-                // Redirige directamente a google.com
-                window.location.href = "https://www.youtube.com";
-            }
+        // Verifica si la tecla presionada es la tecla Shift (código 16)
+        if (event.keyCode === 16) {
+            // Redirige a google.com cuando se presiona Shift
+            window.location.href = "https://www.youtube.com";
         }
+    }
 
-        // Registra un escuchador de eventos para keydown
-        document.addEventListener("keydown", manejarKeyPress);
-    </script>
-
+    // Registra un escuchador de eventos para keydown
+    document.addEventListener("keydown", manejarKeyPress);
+</script>
 
 <video autoplay loop>
     <source src="wallpaper-ps5.mp4" type="video/mp4">
