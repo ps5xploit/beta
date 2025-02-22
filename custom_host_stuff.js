@@ -90,7 +90,7 @@ document.addEventListener('keyup', function (event) {
     if (event.keyCode === 114) { // Verifica si la tecla es F3 (114)
         console.log("Tecla F3 liberada (keyup)");
         // Aquí puedes agregar la acción que deseas realizar
-        alert("¡Tecla F3 detectada!");
+        //alert("¡Tecla F3 detectada!");
     }
 });
 
