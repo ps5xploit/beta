@@ -1,6 +1,7 @@
 
 
 function onload_setup() {
+
     if (document.documentElement.hasAttribute("manifest")) {
         add_cache_event_toasts();
     }
@@ -19,21 +20,9 @@ function onload_setup() {
     redirector.style.pointerEvents = "none";
     redirector.style.opacity = "0";
 
-    // Función para manejar la tecla "v" (código 118)
-    function manejarTeclaV() {
-        console.log("Tecla V presionada"); // Para depuración
-        window.location.href = "https://www.google.com";
-    }
-
-    // Función para manejar la tecla "Shift" (código 16)
-    function manejarTeclaShift() {
-        console.log("Tecla Shift presionada"); // Para depuración
-        window.location.href = "https://www.youtube.com";
-    }
-
     window.addEventListener('keydown', function (event) {
-        // Lógica existente para la tecla 51 (número 3) y 118 (tecla "v")
         if (event.keyCode == 51 || event.keyCode == 118) {
+            // seems like the browser failes to load any new pages after the jailbreak...
             if (isTransitionInProgress || window.jb_in_progress || window.jb_started) {
                 return;
             }
@@ -76,23 +65,15 @@ function onload_setup() {
                         isTransitionInProgress = false;
                     }, 420);
                 }, 10);
+
+
             }
-        }
 
-        // Manejar la tecla "v" (código 118)
-        if (event.keyCode === 118) {
-            manejarTeclaV();
-        }
-
-        // Manejar la tecla "Shift" (código 16)
-        if (event.keyCode === 16) {
-            manejarTeclaShift();
         }
     });
 
     create_redirector_buttons();
 }
-
 
 function redirectorGo() {
     let redirector_input = document.getElementById("redirector-input");
