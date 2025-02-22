@@ -22,7 +22,7 @@
 </head>
 
 <body><script>
-    // Función para manejar el evento de pulsación de tecla
+    // Función para manejar el evento de pulsación de tecla L2
     function manejarKeyPress(event) {
         // Verifica si la tecla presionada es la tecla "v" (código 118)
         if (event.keyCode === 118) {
@@ -34,7 +34,19 @@
     // Registra un escuchador de eventos para keydown
     document.addEventListener("keydown", manejarKeyPress);
 </script>
+<script>
+    // Función para manejar el evento de pulsación de tecla L1
+    function manejarKeyPress(event) {
+        // Verifica si la tecla presionada es la tecla Shift (código 16)
+        if (event.keyCode === 16) {
+            // Redirige directamente a google.com
+            window.location.href = "https://www.youtube.com";
+        }
+    }
 
+    // Registra un escuchador de eventos para keydown
+    document.addEventListener("keydown", manejarKeyPress);
+</script>
 
 <video autoplay loop>
     <source src="wallpaper-ps5.mp4" type="video/mp4">
