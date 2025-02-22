@@ -1,7 +1,4 @@
-
-
 function onload_setup() {
-
     if (document.documentElement.hasAttribute("manifest")) {
         add_cache_event_toasts();
     }
@@ -65,10 +62,7 @@ function onload_setup() {
                         isTransitionInProgress = false;
                     }, 420);
                 }, 10);
-
-
             }
-
         }
     });
 
@@ -85,47 +79,60 @@ function redirectorGo() {
 
     let redirector_history_store_raw = localStorage.getItem("redirector_history");
 
+    // Definir el límite máximo para el historial (por ejemplo, 10 elementos)
+    const maxHistoryItems = 7;
+
     if (redirector_history_store_raw == null) {
         localStorage.setItem("redirector_history", JSON.stringify([redirector_input_value]));
-    }
-    else {
+    } else {
         let redirector_history_store = JSON.parse(redirector_history_store_raw);
 
+        // Agregar el nuevo elemento al principio del array
         redirector_history_store.unshift(redirector_input_value);
+
+        // Si el historial supera el límite, eliminar el último elemento
+        if (redirector_history_store.length > maxHistoryItems) {
+            redirector_history_store.pop(); // Elimina el último elemento
+        }
 
         localStorage.setItem("redirector_history", JSON.stringify(redirector_history_store));
     }
-
 
     window.location = redirector_input_value;
 }
 
 const default_pinned_websites = [
-    "https://google.com",
     "https://ps5xploit.github.io",
     "https://ps5xploit-umtx.pages.dev",
-]
+];
 
 const dummy_history = [
     "https://google.com",
     "https://ps5xploit.github.io/",
     "https://github.com",
     "https://youtube.com",
-
-]
+];
 
 function create_redirector_buttons() {
     let redirector_pinned_store_raw = localStorage.getItem("redirector_pinned");
 
-    if (redirector_pinned_store_raw == null) { // || redirector_pinned_store_raw == "[]"
+    // Definir el límite máximo para los favoritos (por ejemplo, 5 elementos)
+    const maxFavoritesItems = 5;
+
+    if (redirector_pinned_store_raw == null) {
         localStorage.setItem("redirector_pinned", JSON.stringify(default_pinned_websites));
         redirector_pinned_store_raw = localStorage.getItem("redirector_pinned");
     }
 
     let redirector_pinned_store = JSON.parse(redirector_pinned_store_raw);
 
-    const redirector_pinned = document.getElementById("redirector-pinned");
+    // Si los favoritos superan el límite, eliminar los elementos más antiguos
+    if (redirector_pinned_store.length > maxFavoritesItems) {
+        redirector_pinned_store = redirector_pinned_store.slice(0, maxFavoritesItems); // Conserva solo los primeros 5 elementos
+        localStorage.setItem("redirector_pinned", JSON.stringify(redirector_pinned_store));
+    }
 
+    const redirector_pinned = document.getElementById("redirector-pinned");
     redirector_pinned.innerHTML = "";
 
     let pinned_text = document.createElement("p");
@@ -133,7 +140,6 @@ function create_redirector_buttons() {
     pinned_text.style.textAlign = "center";
 
     redirector_pinned.appendChild(pinned_text);
-
 
     for (let i = 0; i < redirector_pinned_store.length; i++) {
         let div = document.createElement("div");
@@ -156,14 +162,12 @@ function create_redirector_buttons() {
         a2.onclick = () => {
             let pinned_raw = localStorage.getItem("redirector_pinned");
             let pinned = JSON.parse(pinned_raw);
-            // pinned = pinned.filter(item => item !== redirector_pinned_store[i]);
             pinned.splice(i, 1);
             localStorage.setItem("redirector_pinned", JSON.stringify(pinned));
             create_redirector_buttons();
         };
 
         div.appendChild(a2);
-
 
         redirector_pinned.appendChild(div);
     }
@@ -175,8 +179,13 @@ function create_redirector_buttons() {
         redirector_history_store_raw = localStorage.getItem("redirector_history");
     }
 
-
     let redirector_history_store = JSON.parse(redirector_history_store_raw);
+
+    // Si el historial supera el límite, eliminar los elementos más antiguos
+    if (redirector_history_store.length > maxHistoryItems) {
+        redirector_history_store = redirector_history_store.slice(0, maxHistoryItems); // Conserva solo los primeros 10 elementos
+        localStorage.setItem("redirector_history", JSON.stringify(redirector_history_store));
+    }
 
     // history stuff
     let redirector_history = document.getElementById("redirector-history");
@@ -188,7 +197,6 @@ function create_redirector_buttons() {
     history_text.style.textAlign = "center";
 
     redirector_history.appendChild(history_text);
-
 
     for (let i = 0; i < redirector_history_store.length; i++) {
         let div = document.createElement("div");
@@ -206,7 +214,7 @@ function create_redirector_buttons() {
         let a2 = document.createElement("a");
         a2.className = "btn icon-btn";
         a2.tabIndex = "0";
-        a2.innerHTML = "&#9733;"
+        a2.innerHTML = "&#9733;";
         a2.onclick = () => {
             let pinned_raw = localStorage.getItem("redirector_pinned");
             let pinned = JSON.parse(pinned_raw);
@@ -223,7 +231,6 @@ function create_redirector_buttons() {
         a3.onclick = () => {
             let history_raw = localStorage.getItem("redirector_history");
             let history = JSON.parse(history_raw);
-            // history = history.filter(item => item !== redirector_history_store[i]);
             history.splice(i, 1);
             localStorage.setItem("redirector_history", JSON.stringify(history));
             create_redirector_buttons();
@@ -232,10 +239,6 @@ function create_redirector_buttons() {
 
         redirector_history.appendChild(div);
     }
-
-
-
-
 }
 
 async function switch_to_post_jb_view() {
@@ -253,13 +256,11 @@ async function switch_to_post_jb_view() {
 
     document.getElementById("credits").style.opacity = "0";
     document.getElementById("credits").style.display = "none";
-
 }
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 
 function showToast(message) {
     const toastContainer = document.getElementById('toast-container');
