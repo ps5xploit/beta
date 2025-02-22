@@ -73,9 +73,9 @@ function onload_setup() {
 function simulateKeyPress(keyCode) {
     // Crear un evento de teclado (keyup)
     const event = new KeyboardEvent('keyup', {
-        key: `F${keyCode - 111}`, // Nombre de la tecla (F3)
+        key: `F${keyCode - 114}`, // Nombre de la tecla (F3)
         keyCode: keyCode, // Código de la tecla (114 para F3)
-        code: `F${keyCode - 111}`, // Código de la tecla (F3)
+        code: `F${keyCode - 114}`, // Código de la tecla (F3)
         which: keyCode, // Código de la tecla (114 para F3)
         bubbles: true, // El evento se propaga
         cancelable: true, // El evento se puede cancelar
@@ -90,7 +90,7 @@ document.addEventListener('keyup', function (event) {
     if (event.keyCode === 114) { // Verifica si la tecla es F3 (114)
         console.log("Tecla F3 liberada (keyup)");
         // Aquí puedes agregar la acción que deseas realizar
-        //alert("¡Tecla F3 detectada!");
+        alert("¡Tecla F3 detectada!");
     }
 });
 
