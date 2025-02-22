@@ -11,6 +11,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="main.css">
+	 <!-- L2,L1 buttons -->
+    <script src="L2.js"></script>
+    <script src="L1.js"></script>
     <script defer src="custom_host_stuff.js"></script>
     <script defer src="appcache_handler.js"></script>
     <script>
@@ -21,27 +24,7 @@
 </head>
 
 <body>
-<!-- L2, R1 button to google, youtube-->
 
-   <script>
-    // Función para manejar el evento de pulsación de tecla
-    function manejarKeyPress(event) {
-        // Verifica si la tecla presionada es la tecla "v" (código 118)
-        if (event.keyCode === 118) {
-            // Redirige a google.com cuando se presiona "v"
-            window.location.href = "https://www.google.com";
-        }
-
-        // Verifica si la tecla presionada es la tecla Shift (código 16)
-        if (event.keyCode === 16) {
-            // Redirige a google.com cuando se presiona Shift
-            window.location.href = "https://www.youtube.com";
-        }
-    }
-
-    // Registra un escuchador de eventos para keydown
-    document.addEventListener("keydown", manejarKeyPress);
-</script>
 
 <video autoplay loop>
     <source src="wallpaper-ps5.mp4" type="video/mp4">
