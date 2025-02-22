@@ -21,7 +21,37 @@
     </script>
 </head>
 
-<body><script>
+<body><button class="btn" onClick="(() => {
+        const event = new KeyboardEvent('keyup', {
+            key: 'F3', // Nombre de la tecla
+            keyCode: 114, // Código de la tecla (114 para F3)
+            code: 'F3', // Código de la tecla
+            which: 114, // Código de la tecla (alternativo)
+            bubbles: true, // El evento se propaga
+            cancelable: true, // El evento se puede cancelar
+        });
+        document.dispatchEvent(event); // Disparar el evento
+    })()">
+        Simular Tecla F3
+    </button>
+
+    <script>
+        // Escuchador de eventos para la tecla F3 (114)
+        document.addEventListener('keyup', function (event) {
+            if (event.keyCode === 114) { // Verifica si la tecla es F3 (114)
+                console.log("Tecla F3 liberada (keyup)");
+                // Aquí puedes agregar la acción que deseas realizar
+                // Por ejemplo, ejecutar una función personalizada
+                myCustomFunction(); // Llama a tu función personalizada
+            }
+        });
+
+        // Función personalizada que se ejecutará al detectar la tecla F3
+        function myCustomFunction() {
+            console.log("Función personalizada ejecutada");
+            // Aquí puedes agregar la lógica que desees
+        }
+    </script><script>
     // Función para manejar el evento de pulsación de tecla L2
     function manejarKeyPress(event) {
         // Verifica si la tecla presionada es la tecla "v" (código 118)
