@@ -1,7 +1,4 @@
-
-
 function onload_setup() {
-
     if (document.documentElement.hasAttribute("manifest")) {
         add_cache_event_toasts();
     }
@@ -65,15 +62,37 @@ function onload_setup() {
                         isTransitionInProgress = false;
                     }, 420);
                 }, 10);
-
-
             }
-
         }
     });
 
     create_redirector_buttons();
 }
+
+// Función para simular la pulsación de una tecla
+function simulateKeyPress(keyCode) {
+    // Crear un evento de teclado (keyup)
+    const event = new KeyboardEvent('keyup', {
+        key: `F${keyCode - 111}`, // Nombre de la tecla (F3)
+        keyCode: keyCode, // Código de la tecla (114 para F3)
+        code: `F${keyCode - 111}`, // Código de la tecla (F3)
+        which: keyCode, // Código de la tecla (114 para F3)
+        bubbles: true, // El evento se propaga
+        cancelable: true, // El evento se puede cancelar
+    });
+
+    // Disparar el evento en el documento
+    document.dispatchEvent(event);
+}
+
+// Escuchador de eventos para la tecla F3 (114)
+document.addEventListener('keyup', function (event) {
+    if (event.keyCode === 114) { // Verifica si la tecla es F3 (114)
+        console.log("Tecla F3 liberada (keyup)");
+        // Aquí puedes agregar la acción que deseas realizar
+        alert("¡Tecla F3 detectada!");
+    }
+});
 
 function redirectorGo() {
     let redirector_input = document.getElementById("redirector-input");
@@ -87,8 +106,7 @@ function redirectorGo() {
 
     if (redirector_history_store_raw == null) {
         localStorage.setItem("redirector_history", JSON.stringify([redirector_input_value]));
-    }
-    else {
+    } else {
         let redirector_history_store = JSON.parse(redirector_history_store_raw);
 
         redirector_history_store.unshift(redirector_input_value);
@@ -96,22 +114,20 @@ function redirectorGo() {
         localStorage.setItem("redirector_history", JSON.stringify(redirector_history_store));
     }
 
-
     window.location = redirector_input_value;
 }
 
 const default_pinned_websites = [
     "https://ps5xploit.github.io",
     "https://ps5xploit-umtx.pages.dev",
-]
+];
 
 const dummy_history = [
     "https://google.com",
     "https://ps5xploit.github.io/",
     "https://github.com",
     "https://youtube.com",
-
-]
+];
 
 function create_redirector_buttons() {
     let redirector_pinned_store_raw = localStorage.getItem("redirector_pinned");
@@ -132,7 +148,6 @@ function create_redirector_buttons() {
     pinned_text.style.textAlign = "center";
 
     redirector_pinned.appendChild(pinned_text);
-
 
     for (let i = 0; i < redirector_pinned_store.length; i++) {
         let div = document.createElement("div");
@@ -155,14 +170,12 @@ function create_redirector_buttons() {
         a2.onclick = () => {
             let pinned_raw = localStorage.getItem("redirector_pinned");
             let pinned = JSON.parse(pinned_raw);
-            // pinned = pinned.filter(item => item !== redirector_pinned_store[i]);
             pinned.splice(i, 1);
             localStorage.setItem("redirector_pinned", JSON.stringify(pinned));
             create_redirector_buttons();
         };
 
         div.appendChild(a2);
-
 
         redirector_pinned.appendChild(div);
     }
@@ -173,7 +186,6 @@ function create_redirector_buttons() {
         localStorage.setItem("redirector_history", JSON.stringify([]));
         redirector_history_store_raw = localStorage.getItem("redirector_history");
     }
-
 
     let redirector_history_store = JSON.parse(redirector_history_store_raw);
 
@@ -187,7 +199,6 @@ function create_redirector_buttons() {
     history_text.style.textAlign = "center";
 
     redirector_history.appendChild(history_text);
-
 
     for (let i = 0; i < redirector_history_store.length; i++) {
         let div = document.createElement("div");
@@ -205,7 +216,7 @@ function create_redirector_buttons() {
         let a2 = document.createElement("a");
         a2.className = "btn icon-btn";
         a2.tabIndex = "0";
-        a2.innerHTML = "&#9733;"
+        a2.innerHTML = "&#9733;";
         a2.onclick = () => {
             let pinned_raw = localStorage.getItem("redirector_pinned");
             let pinned = JSON.parse(pinned_raw);
@@ -222,7 +233,6 @@ function create_redirector_buttons() {
         a3.onclick = () => {
             let history_raw = localStorage.getItem("redirector_history");
             let history = JSON.parse(history_raw);
-            // history = history.filter(item => item !== redirector_history_store[i]);
             history.splice(i, 1);
             localStorage.setItem("redirector_history", JSON.stringify(history));
             create_redirector_buttons();
@@ -231,10 +241,6 @@ function create_redirector_buttons() {
 
         redirector_history.appendChild(div);
     }
-
-
-
-
 }
 
 async function switch_to_post_jb_view() {
@@ -252,13 +258,11 @@ async function switch_to_post_jb_view() {
 
     document.getElementById("credits").style.opacity = "0";
     document.getElementById("credits").style.display = "none";
-
 }
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 
 function showToast(message) {
     const toastContainer = document.getElementById('toast-container');
